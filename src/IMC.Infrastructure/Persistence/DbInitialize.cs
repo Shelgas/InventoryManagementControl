@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMC.Infrastructure.Persistence
 {
-    internal class DbInitialize
+    public static class DbInitialize
     {
         public static void Initialize(IMCDbContext context)
         {
