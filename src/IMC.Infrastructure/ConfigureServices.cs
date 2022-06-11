@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using IMC.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using IMC.Domain.Interfaces;
+using IMC.Infrastructure.Persistence.Repository;
 
 namespace IMC.Infrastructure
 {
@@ -15,6 +17,7 @@ namespace IMC.Infrastructure
             {
                 options.UseInMemoryDatabase("IMC");
             });
+            services.AddScoped<IPaintRepository, PaintRepository>();
             return services;
         }
     }
