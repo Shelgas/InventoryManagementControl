@@ -9,7 +9,7 @@ namespace IMC.Domain.Interfaces
     public interface IPaintRepository : IRepositoryBase<Paint>
     {
         Task<IEnumerable<Paint>> GetAllPaintAsync();
-        Task<Paint> GetPaintByIdAsync(Guid paintId);
+        Task<IEnumerable<Paint>> GetPaintByNameAsync(string name);
 
         Task CreatePaintAsync(Paint paint);
         void UpdatePaint(Paint paint);

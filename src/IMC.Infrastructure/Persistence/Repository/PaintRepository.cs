@@ -33,10 +33,10 @@ namespace IMC.Infrastructure.Persistence.Repository
             return await FindAll().ToListAsync();
         }
 
-        public async Task<Paint> GetPaintByIdAsync(Guid paintId)
+        public async Task<IEnumerable<Paint>> GetPaintByNameAsync(string name)
         {
-            return await FindByCondition(paint => paint.Id.Equals(paintId))
-                .FirstOrDefaultAsync();
+            return await FindByCondition(paint => paint.Title.Equals(name))
+                .ToListAsync();
         }
 
         public void UpdatePaint(Paint paint)
