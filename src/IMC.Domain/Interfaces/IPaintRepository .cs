@@ -14,7 +14,5 @@ namespace IMC.Domain.Interfaces
         void CreatePaint(Paint paint);
         void UpdatePaint(Paint paint);
         void DeletePaint(Paint paint);
-
-        Task SaveAsync();
     }
 }

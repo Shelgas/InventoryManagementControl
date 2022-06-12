@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace IMC.Infrastructure.Persistence
 {
-    public class IMCDbContext : DbContext, IPaintsDbContext
+    public class IMCDbContext : DbContext
     {
 
         public IMCDbContext(DbContextOptions options) 

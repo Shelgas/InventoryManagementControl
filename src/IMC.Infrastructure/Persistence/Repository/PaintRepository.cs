@@ -39,11 +39,6 @@ namespace IMC.Infrastructure.Persistence.Repository
                 .FirstOrDefaultAsync();
         }
 
-        public async Task SaveAsync()
-        {
-            await context.SaveChangesAsync();
-        }
-
         public void UpdatePaint(Paint paint)
         {
             Update(paint);
