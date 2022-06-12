@@ -4,7 +4,7 @@ namespace IMC.Infrastructure.Persistence.Repository
 {
     public class RepositoryWrapper : IRepositoryWrapper
     {
-        private IMCDbContext _context;
+        private readonly IMCDbContext _context;
         private IPaintRepository _paint;
 
         public RepositoryWrapper(IMCDbContext context)

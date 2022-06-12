@@ -17,7 +17,7 @@ namespace IMC.Infrastructure
             {
                 options.UseInMemoryDatabase("IMC");
             });
-            services.AddScoped<IPaintRepository, PaintRepository>();
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             return services;
         }
     }

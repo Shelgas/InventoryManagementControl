@@ -11,7 +11,7 @@ namespace IMC.Domain.Interfaces
         Task<IEnumerable<Paint>> GetAllPaintAsync();
         Task<Paint> GetPaintByIdAsync(Guid paintId);
 
-        void CreatePaint(Paint paint);
+        Task CreatePaintAsync(Paint paint);
         void UpdatePaint(Paint paint);
         void DeletePaint(Paint paint);
     }

@@ -26,9 +26,9 @@ namespace IMC.Infrastructure.Persistence.Repository
         }
 
 
-        public void Create(T entity)
+        public async Task CreateAsync(T entity)
         {
-            this.context.Set<T>().Add(entity);
+            await this.context.Set<T>().AddAsync(entity);
         }
 
         public void Update(T entity)

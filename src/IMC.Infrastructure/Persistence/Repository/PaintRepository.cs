@@ -18,9 +18,9 @@ namespace IMC.Infrastructure.Persistence.Repository
 
         }
 
-        public void CreatePaint(Paint paint)
+        public async Task CreatePaintAsync(Paint paint)
         {
-            Create(paint);
+            await CreateAsync(paint);
         }
 
         public void DeletePaint(Paint paint)
