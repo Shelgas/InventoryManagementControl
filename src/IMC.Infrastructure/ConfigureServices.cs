@@ -15,7 +15,7 @@ namespace IMC.Infrastructure
             var connectionString = configuration["DbConnection"];
             services.AddDbContext<IMCDbContext>(options =>
             {
-                options.UseInMemoryDatabase("IMC");
+                options.UseNpgsql(configuration.GetConnectionString("IMCdb"));
             });
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             return services;
