@@ -1,0 +1,35 @@
+﻿@page "/paint"
+@inject IPaintService paintService
+
+<PageTitle>Paint Inventory</PageTitle>
+
+<table class="table">
+    <thead> 
+        <tr>
+            <th>Title</th>
+            <th>Color</th>
+            <th>Type</th>
+            <th>Row</th>
+            <th>Colum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var paint in paintService.Paints)
+       {
+           <tr>
+              <td>@paint.Title</td>
+              <td style="background-color:@paint.Color;"></td>
+              <td>@paint.Type</td>
+              <td>@paint.Row</td>
+              <td>@paint.Column</td>
+           </tr>
+       }
+    </tbody>
+</table>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await paintService.GetPaintsAsync();
+    }
+}
