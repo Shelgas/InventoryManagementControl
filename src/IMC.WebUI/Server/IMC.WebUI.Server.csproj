@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.5" />
   </ItemGroup>
 
@@ -15,10 +16,6 @@
     <ProjectReference Include="..\..\IMC.Domain\IMC.Domain.csproj" />
     <ProjectReference Include="..\..\IMC.Infrastructure\IMC.Infrastructure.csproj" />
     <ProjectReference Include="..\Client\IMC.WebUI.Client.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 

@@ -1,6 +1,9 @@
 using IMC.Infrastructure;
 using IMC.Infrastructure.Persistence;
+using IMC.Infrastructure.Persistence.Repository;
 using IMC.Application;
+using IMC.Domain.Interfaces;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 var app = builder.Build();
 
