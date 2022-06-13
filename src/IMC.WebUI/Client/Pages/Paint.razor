@@ -1,7 +1,11 @@
-﻿@page "/paint"
+﻿@page "/"
+@page "/paint"
 @inject IPaintService paintService
+@inject NavigationManager NavigationManager
 
 <PageTitle>Paint Inventory</PageTitle>
+
+<h4>My paint inventory</h4>
 
 <table class="table">
     <thead> 
@@ -22,6 +26,9 @@
               <td>@paint.Type</td>
               <td>@paint.Row</td>
               <td>@paint.Column</td>
+               <td>
+                    <button class="btn btn-primary" @onclick="(() => ShowPaint(paint.Id))"><i class="oi oi-pencil"></i></button>
+                </td>
            </tr>
        }
     </tbody>
@@ -31,5 +38,10 @@
     protected override async Task OnInitializedAsync()
     {
         await paintService.GetPaintsAsync();
+    }
+
+    void ShowPaint(Guid Id)
+    {
+        NavigationManager.NavigateTo($"paint/{Id}");
     }
 }
