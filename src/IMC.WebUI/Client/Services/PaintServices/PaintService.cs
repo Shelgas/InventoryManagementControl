@@ -24,5 +24,10 @@ namespace IMC.WebUI.Client.Services.PaintServices
             if (result != null)
                 Paints = result;
         }
+
+        public Task GetPaintsAsyncByName()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

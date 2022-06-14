@@ -4,6 +4,8 @@
     {
         List<Paint> Paints { get; }
         Task GetPaintsAsync();
+
+        Task GetPaintsAsyncByName();
         Task<Paint> GetPaintAsync();
     }
 }

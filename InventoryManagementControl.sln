@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMC.Infrastructure", "src\I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMC.Application", "src\IMC.Application\IMC.Application.csproj", "{4049323C-72ED-4AA0-B621-572FA4D117DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMC.WebUI.Server", "src\IMC.WebUI\Server\IMC.WebUI.Server.csproj", "{6DB30D51-21B8-468E-8B3C-B69AFC382ED9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMC.WebUI.Server", "src\IMC.WebUI\Server\IMC.WebUI.Server.csproj", "{6DB30D51-21B8-468E-8B3C-B69AFC382ED9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMC.WebUI.Client", "src\IMC.WebUI\Client\IMC.WebUI.Client.csproj", "{F5D01048-40F3-4C55-9051-0FC0C54C9CC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMC.WebUI.Client", "src\IMC.WebUI\Client\IMC.WebUI.Client.csproj", "{F5D01048-40F3-4C55-9051-0FC0C54C9CC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
