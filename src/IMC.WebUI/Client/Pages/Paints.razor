@@ -1,5 +1,6 @@
 ﻿@page "/"
 @page "/paints"
+@using IMC.Domain
 @inject IPaintService paintService
 @inject NavigationManager NavigationManager
 
@@ -7,7 +8,7 @@
 
 <h4>My paint inventory</h4>
 
-<ViewPaintSearchComponent></ViewPaintSearchComponent>
+<ViewPaintSearchComponent OnSearchPaints="OnSearchPaints"></ViewPaintSearchComponent>
 
 <table class="table">
     <thead> 
@@ -17,6 +18,7 @@
             <th>Type</th>
             <th>Row</th>
             <th>Colum</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -42,8 +44,17 @@
         await paintService.GetPaintsAsync();
     }
 
+    List<Paint> Data = new List<Paint>();
+
+
     void ShowPaint(Guid Id)
     {
         NavigationManager.NavigateTo($"paint/{Id}");
+    }
+
+
+    private async Task OnSearchPaints(string searchName)
+    {
+        await paintService.GetPaintsAsyncByName(searchName);
     }
 }

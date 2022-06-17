@@ -1,9 +1,25 @@
-﻿<div class="input-group mb-3">
+﻿@inject IPaintService PaintService
+@using IMC.Domain
+
+<div class="input-group mb-3">
     <input type="text"
         class="form-control form-control-lg"
-        placeholder="Type paint name to search">
-    <button type="button" class="input-group-text btn-primary">View</button>
+        placeholder="Type paint name to search"
+        @bind-value="paintNameToSearch" />
+    <button type="button" class="input-group-text btn-success"
+        @onclick ="@(async () => {await ViewPaints(); })">View</button>
 </div>
+
+
 @code {
+    private string? paintNameToSearch;
+
+    [Parameter]
+    public EventCallback<string> OnSearchPaints { get; set; }
+
+    private async Task ViewPaints()
+    {
+        await OnSearchPaints.InvokeAsync(paintNameToSearch);
+    }
 
 }

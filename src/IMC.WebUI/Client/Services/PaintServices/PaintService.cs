@@ -25,9 +25,12 @@ namespace IMC.WebUI.Client.Services.PaintServices
                 Paints = result;
         }
 
-        public Task GetPaintsAsyncByName()
+        public async Task GetPaintsAsyncByName(string name)
         {
-            throw new NotImplementedException();
+            var result = await _http.GetFromJsonAsync<List<Paint>>($"api/paint/{name}");
+            if (result != null)
+                Paints = result; 
         }
+
     }
 }
