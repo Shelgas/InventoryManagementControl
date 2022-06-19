@@ -5,6 +5,6 @@ namespace IMC.Application.Paints.Queries.GetPaintByName
 {
     public class GetPaintByNameQuery : IRequest<IEnumerable<Paint>>
     {
-         public string Title { get; set; }  
+         public string Title { get; set; }  = String.Empty;
     }
 }

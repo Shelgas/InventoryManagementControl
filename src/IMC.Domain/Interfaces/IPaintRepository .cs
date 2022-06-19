@@ -10,6 +10,7 @@ namespace IMC.Domain.Interfaces
     {
         Task<IEnumerable<Paint>> GetAllPaintAsync();
         Task<IEnumerable<Paint>> GetPaintByNameAsync(string name);
+        Task<Paint> GetSinglepPaint(Guid id);
 
         Task CreatePaintAsync(Paint paint);
         void UpdatePaint(Paint paint);

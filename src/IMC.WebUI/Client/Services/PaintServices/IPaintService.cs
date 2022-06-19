@@ -4,8 +4,11 @@
     {
         List<Paint> Paints { get; }
         Task GetPaintsAsync();
-
-        Task GetPaintsAsyncByName(string name);
-        Task<Paint> GetPaintAsync();
+        Task<Paint> GetPaintByIdAsync(Guid id);
+        Task GetPaintsByNameAsync(string name);
+        Task CreatePaint(Paint paint);
+        Task UpdatePaintAsync(Paint paint);
+        Task DeletePaintAsync(Guid id);
+     
     }
 }

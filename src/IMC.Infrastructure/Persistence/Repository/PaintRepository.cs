@@ -36,9 +36,16 @@ namespace IMC.Infrastructure.Persistence.Repository
         public async Task<IEnumerable<Paint>> GetPaintByNameAsync(string name)
         {
             return await FindByCondition(paint => 
-                paint.Title.Contains(name) 
+                paint.Title.ToLower().Contains(name.ToLower()) 
                 || string.IsNullOrWhiteSpace(name))
                 .ToListAsync();
+        }
+
+     
+        public async Task<Paint> GetSinglepPaint(Guid id)
+        {
+            return await FindByCondition(paint =>
+                paint.Id.Equals(id)).FirstOrDefaultAsync();
         }
 
         public void UpdatePaint(Paint paint)

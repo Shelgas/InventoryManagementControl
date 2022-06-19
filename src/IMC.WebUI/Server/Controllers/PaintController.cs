@@ -2,6 +2,7 @@
 using IMC.Domain;
 using IMC.Application.Paints.Queries.GetPaintList;
 using IMC.Application.Paints.Queries.GetPaintByName;
+using IMC.Application.Paints.Queries.GetSinglePaint;
 
 namespace IMC.WebUI.Server.Controllers
 {
@@ -18,11 +19,23 @@ namespace IMC.WebUI.Server.Controllers
         }
 
         [HttpGet("{title}")]
-        public async Task<ActionResult<Paint>> GetPaintByName(string title)
+        public async Task<ActionResult<List<Paint>>> GetPaintByName(string title)
         {
             var query = new GetPaintByNameQuery
             {
                 Title = title
+            };
+            var vm = await Mediator.Send(query);
+            return Ok(vm);
+
+        }
+
+        [HttpGet("{id}/edit")]
+        public async Task<ActionResult<Paint>> GetSinglePaint(Guid id)
+        {
+            var query = new GetSinglePaintQuery
+            {
+                Id = id
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);

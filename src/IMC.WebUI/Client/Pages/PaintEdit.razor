@@ -1,0 +1,75 @@
+﻿@page "/paint/{id:guid}"
+@page "/paint"
+@using IMC.Domain
+@inject IPaintService paintService
+
+<h4>My paint inventory</h4>
+<EditForm Model="@paint" OnSubmit="HandleSubmit">
+    <div>
+        <label for="title">Title</label>
+        <InputText id="title" @bind-Value="@paint.Title" class="form-control"></InputText>
+    </div>
+    <div>
+        <label for="color">Color</label>
+        <InputText id="color" @bind-Value="paint.Color" class="form-control"></InputText>
+    </div>
+    <div>
+        <label for="row">Row</label>
+        <InputNumber id="row" @bind-Value="paint.Row" class="form-control"></InputNumber>
+    </div>
+     <div>
+        <label for="column">Column</label>
+        <InputNumber id="column" @bind-Value="paint.Column" class="form-control"></InputNumber>
+    </div>
+    <div>
+        <label for="type">Type</label>
+        <InputText id="type" @bind-Value="paint.Type" class="form-control"></InputText>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">@btnText</button>
+    <button type="button" class="btn btn-danger" @onclick="DeletePaint">Delete Paint</button>
+</EditForm>
+
+
+
+@code {
+    [Parameter]
+    public Guid Id { get; set; }
+
+    Paint paint = new Paint();
+    string btnText = string.Empty;
+
+
+
+    protected override void OnInitialized()
+    {
+
+        btnText = Id == Guid.Empty ?  "Add New Paint" : "Update Paint";
+
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id != Guid.Empty)
+        {
+            paint = await paintService.GetPaintByIdAsync(Id);
+        }
+    }
+
+    async Task HandleSubmit()
+    {
+        if (Id != Guid.Empty)
+        {
+            await paintService.UpdatePaintAsync(paint);
+        }
+        else
+        {
+            await paintService.CreatePaint(paint);
+        }
+    }
+
+    async Task DeletePaint()
+    {
+        await paintService.DeletePaintAsync(Id);
+    }
+}
